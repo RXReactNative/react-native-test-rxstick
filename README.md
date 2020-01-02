@@ -21,7 +21,7 @@ import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
 
 <br />
 
-![srxboys-stick](https://github.com/RXReactNative/react-native-test-rxstick/blob/master/screen_img/stick.jpeg)
+![srxboys-stick](https://github.com/RXReactNative/react-native-test-rxstick/blob/master/screen_img/stick.jpg)
 ![srxboys-detail](https://github.com/RXReactNative/react-native-test-rxstick/blob/master/screen_img/stick-detail.jpeg)
 
 <br /><br />
