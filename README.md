@@ -26,7 +26,7 @@ import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
 
 <br /><br />
 
-####  demo
+## demo
 Stick 
 ```js
 import React from 'react';
