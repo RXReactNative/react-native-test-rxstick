@@ -32,10 +32,6 @@ Stick
 import React from 'react';
 import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
 
-import TestTheme from './TestTheme';
-import TestRoot from './TestRoot';
-
-
 export default class TestStick extends Stick {
 
   constructor(props) {
@@ -47,16 +43,22 @@ export default class TestStick extends Stick {
   }
 
   static setTheme() {
-    RXTheme.update(TestTheme);
+    if(__DEV__) { // must
+      const TestTheme = require('./TestTheme').default;
+      RXTheme.update(TestTheme);
+    }
   }
 
   static setRoot() {
-    RXRoot.replaceComponent(<TestRoot />)
+    if(__DEV__) { // must
+      const TestRoot = require('./TestRoot').default;
+      RXRoot.replaceComponent(<TestRoot />)
+    }
   }
 }
 ```
 
-TestTheme
+TestTheme (stick style)
 ```js
 export default {
   stickBackgroundColor: '#FFF68F', 
@@ -66,7 +68,7 @@ export default {
 ```
 
 
-TestRoot
+TestRoot 
 ```js
 // Component
 ```

@@ -31,7 +31,6 @@ export default class Register extends Component {
   }
 
   render() {
-    
     return (
       <View style={styles.container} pointerEvents='box-none'>
         {this.props.children}

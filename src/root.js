@@ -39,13 +39,10 @@ import {
   View,
   Text,
   TouchableOpacity,
-  findNodeHandle,
 } from 'react-native';
 import RXEmitter from 'react-native-rxemitter';
 
 export default class Root extends Component {
-
-
   constructor(props) {
     super(props);
   }

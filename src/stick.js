@@ -1,3 +1,5 @@
+import React from 'react';
+import { NativeModules } from 'react-native';
 
 import RXEmitter from 'react-native-rxemitter'
 import Register from './register';
@@ -15,6 +17,9 @@ export default class Stick {
 
       setTimeout(() => {
         RXEmitter.emit('pattern', {hidden: false});
+        setTimeout(() => {
+          RXEmitter.emit('showStick', {hidden: false});
+        }, 10);
         this.setRoot();
       }, 10);
     }
@@ -33,4 +38,3 @@ export default class Stick {
     // RXRoot.replaceComponent(...)
   }
 }
-

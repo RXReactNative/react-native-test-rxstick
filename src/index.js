@@ -34,6 +34,7 @@ export default class StickView extends Component {
       preX: 0,
       preY: 0,
       newRoot: null,
+      hidden: true,
     }
     this.currentLocal = null;
     this._PanResponder = null;
@@ -44,6 +45,9 @@ export default class StickView extends Component {
   }
 
   componentDidMount() {
+    RXEmitter.addListener(this, 'showStick', ({hidden})=>{
+      this.setState({hidden});
+    })
     RXEmitter.addListener(this, 'gotoHome', ()=> {
       this.setState({ min: true });
     });
@@ -53,7 +57,8 @@ export default class StickView extends Component {
   }
 
   render(){
-    let { min, x, y, preX, preY, newRoot } = this.state;
+    let { hidden, min, x, y, preX, preY, newRoot } = this.state;
+    if(hidden) return null;
     if(min) {
 
       let styleContainer = [styles.container].concat({
