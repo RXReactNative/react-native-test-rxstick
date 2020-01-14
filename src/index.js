@@ -74,7 +74,6 @@ export default class StickView extends Component {
         padding: RXTheme.stickPadding,
       };
 
-
       return(
         <View
           style={[styleContainer, {left: x, top: y}]}

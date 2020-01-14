@@ -60,17 +60,13 @@ export default class TestStick extends Stick {
   }
 
   static setTheme() {
-    if(__DEV__) { // must
-      const TestTheme = require('./TestTheme').default;
-      RXTheme.update(TestTheme);
-    }
+    const TestTheme = require('./TestTheme').default;
+    RXTheme.update(TestTheme);
   }
 
   static setRoot() {
-    if(__DEV__) { // must
-      const TestRoot = require('./TestRoot').default;
-      RXRoot.replaceComponent(<TestRoot />)
-    }
+    const TestRoot = require('./TestRoot').default;
+    RXRoot.replaceComponent(<TestRoot />)
   }
 }
 ```
@@ -89,3 +85,20 @@ TestRoot
 ```js
 // Component
 ```
+
+---
+
+### My approach:
+1. Configure react native bundle packaging <br />
+2. Replace the stick entry file before packaging, debug / release <br />
+<br />
+Disadvantage: not debuggable <br />
+
+---
+
+### 我的处理方法:
+1. 配置react-native bundle打包 <br />
+2. 在打包前替换stick入口文件，debug/release <br />
+<br />
+坏处：不可调试
+<br />
