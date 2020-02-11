@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-test-rxstick",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Native rxstick of test handle.",
   "main": "index.js",
   "scripts": {
