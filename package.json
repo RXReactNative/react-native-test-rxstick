@@ -34,6 +34,6 @@
   "devDependencies": {
       "react": "^16.0.0",
       "react-native": "^0.41.2",
-      "react-native-rxemitter": "^0.0.2"
+      "react-native-rxemitter": "^0.0.3"
   }
 }
