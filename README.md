@@ -3,6 +3,10 @@
 
 小按钮 测试 用于测试
 
+----
+
+这个只是框架(也可以说是 入口)，具体页面，以及功能需要自己定义。
+
 
 simple test framework
 
@@ -46,6 +50,7 @@ Stick
 import React from 'react';
 import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
 
+//第一种
 import TestTheme from './xx/xx'
 import TestRoot from './xx/xx'
 
@@ -60,12 +65,12 @@ export default class TestStick extends Stick {
   }
 
   static setTheme() {
-    const TestTheme = require('./TestTheme').default;
+    // const TestTheme = require('./TestTheme').default; //第二种
     RXTheme.update(TestTheme);
   }
 
   static setRoot() {
-    const TestRoot = require('./TestRoot').default;
+    // const TestRoot = require('./TestRoot').default; //第二种
     RXRoot.replaceComponent(<TestRoot />)
   }
 }
@@ -94,7 +99,7 @@ TestRoot
 <br />
 Disadvantage: not debuggable <br />
 
----
+<br />
 
 ### 我的处理方法:
 1. 配置react-native bundle打包 <br />
@@ -102,3 +107,5 @@ Disadvantage: not debuggable <br />
 <br />
 坏处：不可调试
 <br />
+
+---

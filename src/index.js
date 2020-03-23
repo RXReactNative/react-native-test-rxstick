@@ -21,7 +21,6 @@ import RXTheme from './utils/theme/RXTheme';
 
 const {height, width} = Dimensions.get('window');
 
-
 export default class StickView extends Component {
 
   constructor(props) {
@@ -73,6 +72,8 @@ export default class StickView extends Component {
         color: RXTheme.stickColor,
         padding: RXTheme.stickPadding,
       };
+
+      let stickName = RXTheme.stickName || 'stick';
 
       return(
         <View
@@ -131,7 +132,7 @@ export default class StickView extends Component {
         >
           <Text style={styleText} onPress={()=>{
             this.setState({min: false})
-          }}>{'stick'}</Text>
+          }}>{stickName}</Text>
         </View>
       )
     }

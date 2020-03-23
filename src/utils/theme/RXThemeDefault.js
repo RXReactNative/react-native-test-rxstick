@@ -1,5 +1,9 @@
 
 export default {
+
+  //标题内容
+  stickName: 'stick',
+
   //手柄
   stickBackgroundColor: 'red', 
   stickWidth: 50,
