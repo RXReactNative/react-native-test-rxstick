@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-test-rxstick",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React Native rxstick of test handle.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
       "type": "git",
       "url": "git@github.com:RXReactNative/react-native-test-rxstick.git"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react-native-rxemitter": "^0.0.3"
   },
   "devDependencies": {

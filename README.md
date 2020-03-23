@@ -14,12 +14,12 @@ simple test framework
 Open a Terminal in the project root and run:
 
 ```sh
-  yarn add react-native-test-rxstick
+  yarn add react-native-test-rxstick --save-dev
 ```
 or if you use npm:
 
 ```sh
-  npm install react-native-test-rxstick
+  npm install react-native-test-rxstick --save-dev
 ```
 
 If you are using Expo, you are done.
