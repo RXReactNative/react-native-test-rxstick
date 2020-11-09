@@ -1,12 +1,12 @@
 
-import RXTheme from './src/utils/theme/RXTheme';
-import RXIndex from './src/index';
+import RXTheme from './src/utils/theme/RXTheme'
+import RXIndex from './src/index'
 
-import RXStick from './src/stick';
-export default RXStick;
+import RXStick from './src/stick'
+export default RXStick
 
-//safe export
-const RXRoot = {replaceComponent: RXIndex.replaceComponent};
+// safe export
+const RXRoot = { replaceComponent: RXIndex.replaceComponent }
 
 export {
   RXTheme,

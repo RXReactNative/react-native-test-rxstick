@@ -1,11 +1,10 @@
 /**
- *  @this 
- * 
+ * @this
+ *
  * @flow
  */
 
-'use strict'
-import React, { Component } from 'react';
+import React from 'react'
 import {
   StyleSheet,
   View,
@@ -13,19 +12,17 @@ import {
   Keyboard,
   Dimensions,
   Platform,
-} from 'react-native';
+} from 'react-native'
 
-import Navigation from './root';
-import RXEmitter from 'react-native-rxemitter';
-import RXTheme from './utils/theme/RXTheme';
+import RXEmitter from 'react-native-rxemitter'
+import Navigation from './root'
+import RXTheme from './utils/theme/RXTheme'
 
-const {height, width} = Dimensions.get('window');
+const { height, width } = Dimensions.get('window')
 
-export default class StickView extends Component {
-
+export default class StickView extends React.Component {
   constructor(props) {
-    super(props);
-
+    super(props)
     this.state = {
       min: true,
       x: 10,
@@ -35,110 +32,107 @@ export default class StickView extends Component {
       newRoot: null,
       hidden: true,
     }
-    this.currentLocal = null;
-    this._PanResponder = null;
+    this.currentLocal = null
   }
 
   static replaceComponent(view) {
-    RXEmitter.emit('replace', view);
+    RXEmitter.emit('replace', view)
   }
 
   componentDidMount() {
-    RXEmitter.addListener(this, 'showStick', ({hidden})=>{
-      this.setState({hidden});
+    RXEmitter.addListener(this, 'showStick', ({ hidden }) => {
+      this.setState({ hidden })
     })
-    RXEmitter.addListener(this, 'gotoHome', ()=> {
-      this.setState({ min: true });
-    });
-    RXEmitter.addListener(this, 'replace', (newRoot)=>{
-      this.setState({newRoot});
+    RXEmitter.addListener(this, 'gotoHome', () => {
+      this.setState({ min: true })
+    })
+    RXEmitter.addListener(this, 'replace', (newRoot) => {
+      this.setState({ newRoot })
     })
   }
 
-  render(){
-    let { hidden, min, x, y, preX, preY, newRoot } = this.state;
-    if(hidden) return null;
-    if(min) {
-
-      let styleContainer = [styles.container].concat({
+  render() {
+    let { hidden, min, x, y, preX, preY, newRoot } = this.state
+    if (hidden) return null
+    if (min) {
+      const styleContainer = [styles.container].concat({
         width: RXTheme.stickWidth,
         height: RXTheme.stickHeight,
         borderRadius: RXTheme.stickBorderRadius,
         backgroundColor: RXTheme.stickBackgroundColor,
-      });
+      })
 
-      let styleText = {
+      const styleText = {
         fontSize: RXTheme.stickFontSize,
         color: RXTheme.stickColor,
         padding: RXTheme.stickPadding,
-      };
+      }
 
-      let stickName = RXTheme.stickName || 'stick';
+      const stickName = RXTheme.stickName || 'stick'
 
-      return(
+      return (
         <View
-          style={[styleContainer, {left: x, top: y}]}
-
-          onMoveShouldSetResponder={()=>{
-            // if(Platform.OS === 'ios') return true;
-            // return false;
-            return true;
+          style={[styleContainer, { left: x, top: y }]}
+          onMoveShouldSetResponder={() => true}
+          onResponderGrant={(event) => {
+            Keyboard.dismiss()
+            this.currentLocal = event.nativeEvent
+            this.setState({ preX: 0, preY: 0 })
           }}
-          onResponderGrant={(event)=>{
-            Keyboard.dismiss();
-            this.currentLocal = event.nativeEvent;
-            this.setState({ preX: 0, preY: 0});
-          }}
-          onResponderMove={(event)=>{
-            const {locationX, locationY, pageX, pageY } = event.nativeEvent;
-            var newX = 0, newY = 0;
-            if(Platform.OS === 'android') {
-              newX = pageX - this.currentLocal.pageX;
-              newY = pageY - this.currentLocal.pageY;
+          onResponderMove={(event) => {
+            const { locationX, locationY, pageX, pageY } = event.nativeEvent
+            let newX = 0
+            let newY = 0
+            if (Platform.OS === 'android') {
+              newX = pageX - this.currentLocal.pageX
+              newY = pageY - this.currentLocal.pageY
+            } else {
+              newX = locationX - this.currentLocal.locationX
+              newY = locationY - this.currentLocal.locationY
             }
-            else {
-              newX = locationX - this.currentLocal.locationX;
-              newY = locationY - this.currentLocal.locationY;
-            }
-            x += newX;
+            x += newX
             y += newY
-            preX += newX;
-            preY += newY; 
-            this.setState({ x, y, preX, preY });
+            preX += newX
+            preY += newY
+            this.setState({ x, y, preX, preY })
           }}
-
-          onResponderRelease={(event)=>{
-            if(x<-20) {
-              x = -20;
-            }
-            else if(x>width-20) {
-              x = width-20;
+          onResponderRelease={(event) => {
+            if (x < -20) {
+              x = -20
+            } else if (x > width - 20) {
+              x = width - 20
             }
 
-            if(y<20) {
+            if (y < 20) {
               y = 20
-            }
-            else if(y>height-40) {
-              y = height-40;
-            }
-            
-            if(Math.abs(this.state.preX) <= 10 && 
-              Math.abs(this.state.preY) <= 10) {
-                this.setState({min: false})
+            } else if (y > height - 40) {
+              y = height - 40
             }
 
-            this.setState({ x, y, preX: 0, preY: 0});
+            if (
+              Math.abs(this.state.preX) <= 10 &&
+              Math.abs(this.state.preY) <= 10
+            ) {
+              this.setState({ min: false })
+            }
+
+            this.setState({ x, y, preX: 0, preY: 0 })
           }}
         >
-          <Text style={styleText} onPress={()=>{
-            this.setState({min: false})
-          }}>{stickName}</Text>
+          <Text
+            style={styleText}
+            onPress={() => {
+              this.setState({ min: false })
+            }}
+          >
+            {stickName}
+          </Text>
         </View>
       )
     }
-    return(
+    return (
       <View style={styles.other}>
-        <Navigation newRoot={newRoot}/>
+        <Navigation newRoot={newRoot} />
       </View>
     )
   }
@@ -158,5 +152,5 @@ const styles = StyleSheet.create({
     top: 0,
     height,
     width,
-  }
-});
+  },
+})

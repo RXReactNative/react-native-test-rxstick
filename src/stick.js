@@ -1,37 +1,35 @@
-import React from 'react';
-import { NativeModules } from 'react-native';
+import {} from 'react'
+import {} from 'react-native'
 
 import RXEmitter from 'react-native-rxemitter'
-import Register from './register';
+import Register from './register'
 
 export default class Stick {
-
   static allowAccess() {
-    if(__DEV__) return true
-    return false;
+    if (__DEV__) return true
+    return false
   }
 
   static show() {
-    if(this.allowAccess()) {
-      this.setTheme();
+    if (this.allowAccess()) {
+      this.setTheme()
 
       setTimeout(() => {
-        RXEmitter.emit('pattern', {hidden: false});
+        RXEmitter.emit('pattern', { hidden: false })
         setTimeout(() => {
-          RXEmitter.emit('showStick', {hidden: false});
-        }, 10);
-        this.setRoot();
-      }, 10);
-    }
-    else {
+          RXEmitter.emit('showStick', { hidden: false })
+        }, 10)
+        this.setRoot()
+      }, 10)
+    } else {
       setTimeout(() => {
-        RXEmitter.emit('pattern', {hidden: true});
-      }, 100);
+        RXEmitter.emit('pattern', { hidden: true })
+      }, 100)
     }
   }
 
   static setTheme() {
-    // RXTheme.update(RXThemeDefault);
+    // RXTheme.update(RXThemeDefault)
   }
 
   static setRoot() {

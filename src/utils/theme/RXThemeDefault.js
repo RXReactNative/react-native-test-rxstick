@@ -1,11 +1,11 @@
 
 export default {
 
-  //标题内容
+  // 标题内容
   stickName: 'stick',
 
-  //手柄
-  stickBackgroundColor: 'red', 
+  // 手柄
+  stickBackgroundColor: 'red',
   stickWidth: 50,
   stickHeight: 50,
   stickBorderRadius: 25,

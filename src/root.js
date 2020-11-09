@@ -1,12 +1,11 @@
 /**
- * 
+ *
  */
-"use strict";
-// import { createStackNavigator, createAppContainer} from 'react-navigation';
+// import { createStackNavigator, createAppContainer} from 'react-navigation'
 
-// import RXNavigationConfig from './utils/navigation/RXNavigationConfig';
+// import RXNavigationConfig from './utils/navigation/RXNavigationConfig'
 
-// let nav = RXNavigationConfig.default;
+// let nav = RXNavigationConfig.default
 
 // var Navigator = createStackNavigator({
 //   ...nav
@@ -27,36 +26,32 @@
 //   })
 // })
 
-// export default createAppContainer(Navigator);
-
-
+// export default createAppContainer(Navigator)
 
 // ----  test
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-import RXEmitter from 'react-native-rxemitter';
+import React, { Component } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import RXEmitter from 'react-native-rxemitter'
 
 export default class Root extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    let { newRoot } = this.props;
-    if(newRoot) {
-      return newRoot;
+    const { newRoot } = this.props
+    if (newRoot) {
+      return newRoot
     }
-    return(
+    return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={()=>{
-          RXEmitter.emit('gotoHome');
-        }}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            RXEmitter.emit('gotoHome')
+          }}
+        >
           <Text style={styles.text}>close - 关闭</Text>
         </TouchableOpacity>
         <Text>需要再次实现</Text>
