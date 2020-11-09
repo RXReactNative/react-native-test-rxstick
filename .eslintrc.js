@@ -7,6 +7,11 @@ module.exports = {
     'plugin:react/recommended',
     'standard'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -31,5 +36,6 @@ module.exports = {
     'comma-dangle': 0,
     // 方法名和刮号之间需要有一格空格, 关闭此规则
     'space-before-function-paren': 0,
+    'react/prop-types': 0,
   }
 }

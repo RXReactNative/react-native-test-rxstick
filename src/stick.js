@@ -2,7 +2,7 @@ import {} from 'react'
 import {} from 'react-native'
 
 import RXEmitter from 'react-native-rxemitter'
-import Register from './register'
+import './register'
 
 export default class Stick {
   static allowAccess() {

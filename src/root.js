@@ -35,10 +35,6 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import RXEmitter from 'react-native-rxemitter'
 
 export default class Root extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { newRoot } = this.props
     if (newRoot) {
