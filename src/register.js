@@ -53,10 +53,10 @@ if (!AppRegistry.registerComponentForRXStick) {
 AppRegistry.registerComponent = function (appKey, componentProvider) {
   class RootElement extends Component {
     render() {
-      const suComponent = componentProvider()
+      const Component = componentProvider()
       return (
         <Register>
-          <suComponent {...this.props} />
+          <Component {...this.props} />
         </Register>
       )
     }
