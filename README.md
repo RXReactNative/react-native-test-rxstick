@@ -14,7 +14,7 @@ simple test framework
 Open a Terminal in the project root and run:
 
 ```sh
-  yarn add react-native-test-rxstick --save-dev
+  yarn add react-native-test-rxstick -dev
 ```
 or if you use npm:
 
@@ -26,17 +26,6 @@ If you are using Expo, you are done.
 
 If you don't use Expo, install  [react-native-rxemitter](https://github.com/RXReactNative/react-native-rxemitter).
 
-## Usage
-```js
-
-import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
-
-// Stick
-// RXTheme 
-// RXRoot
-
-```
-
 <br />
 
 ![srxboys-stick](https://github.com/RXReactNative/react-native-test-rxstick/blob/master/screen_img/stick.jpg)
@@ -44,8 +33,7 @@ import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
 
 <br /><br />
 
-## demo
-Stick 
+## Usage
 ```js
 import React from 'react';
 import Stick, { RXTheme, RXRoot } from '../react-native-test-rxstick'
