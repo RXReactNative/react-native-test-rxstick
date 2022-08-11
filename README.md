@@ -22,10 +22,6 @@ or if you use npm:
   npm install react-native-test-rxstick --save-dev
 ```
 
-If you are using Expo, you are done.
-
-If you don't use Expo, install  [react-native-rxemitter](https://github.com/RXReactNative/react-native-rxemitter).
-
 <br />
 
 ![srxboys-stick](https://github.com/RXReactNative/react-native-test-rxstick/blob/master/screen_img/stick.jpg)
@@ -67,14 +63,14 @@ export default class TestStick extends Stick {
 TestTheme (stick style)
 ```js
 export default {
-  stickBackgroundColor: '#FFF68F', 
+  stickBackgroundColor: '#FFF68F',
   stickColor: '#00FFFF',
   stickFontSize: 18,
 }
 ```
 
 
-TestRoot 
+TestRoot
 ```js
 // Component
 ```
