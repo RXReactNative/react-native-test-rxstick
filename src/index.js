@@ -11,4 +11,4 @@ const StickView = rversion(() => {
   return require('./stick-view/index.js')
 })
 
-export default StickView
+module.exports = StickView

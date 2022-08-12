@@ -1,7 +1,6 @@
 /**
  * @flow
  */
-"use strict"
 import React from "react"
 
 const rversion = function(lib1, lib2) {
