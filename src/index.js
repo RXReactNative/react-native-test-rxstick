@@ -15,8 +15,8 @@ import {
 } from 'react-native'
 
 import RXEmitter from 'react-native-rxemitter'
-import Navigation from '../root'
-import RXTheme from '../utils/theme/RXTheme'
+import Navigation from './root'
+import RXTheme from './utils/theme/RXTheme'
 
 const { height, width } = Dimensions.get('window')
 

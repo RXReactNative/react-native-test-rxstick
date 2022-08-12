@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, AppRegistry, StyleSheet } from 'react-native'
 
 import RXEmitter from 'react-native-rxemitter'
-import StickView from './index'
+import StickView from '../index'
 
 export default class Register extends Component {
   constructor(props) {
